@@ -1,12 +1,14 @@
 import axios from "axios"
 import { ACCESS_TOKEN } from "./constants"
 
+const apiUrl = "/choreo-apis/djangoreacttut/backend/v1";
+
 /**
  * Creates an Axios instance with the base URL set to the value of the `VITE_API_URL` environment variable.
  * This instance can be used to make API requests to the specified base URL.
  */
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
+    baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL : apiUrl,
 })
 
 api.interceptors.request.use(
